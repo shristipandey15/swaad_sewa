@@ -55,7 +55,7 @@ const WhyChooseUs = () => {
                 <div className="space-y-8">
                     {features.slice(0, 3).map((item) => (
                         <div key={item.id}>
-                            <h3 className="text-[20px] font-semibold">
+                            <h3 className="text-xl font-semibold">
                                 {item.title}
                             </h3>
                             <p className="text-sm text-[#9AA6C3]">
@@ -78,7 +78,7 @@ const WhyChooseUs = () => {
                 <div className="space-y-8">
                     {features.slice(3).map((item) => (
                         <div key={item.id}>
-                            <h3 className="text-lg font-semibold">
+                            <h3 className="text-xl font-semibold">
                                 {item.title}
                             </h3>
                             <p className="text-sm text-[#9AA6C3]">

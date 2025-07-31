@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from "react";
-import BannerBg from "../../assests/Fo.jpg"; // make sure the path is correct
+import BannerBg from "../../assests/Fo.jpg"; // Make sure the image path is correct
+
+// Move function above component to avoid "undefined" issues
+const getTimeUntilMidnight = () => {
+    const now = new Date();
+    const midnight = new Date();
+    midnight.setHours(23, 59, 59, 999);
+    const diff = midnight - now;
+
+    const hours = Math.floor(diff / 1000 / 60 / 60);
+    const minutes = Math.floor((diff / 1000 / 60) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    return { hours, minutes, seconds };
+};
 
 const HotDealSection = () => {
     const [timeLeft, setTimeLeft] = useState(getTimeUntilMidnight());
-
-    function getTimeUntilMidnight() {
-        const now = new Date();
-        const midnight = new Date();
-        midnight.setHours(23, 59, 59, 999);
-        const diff = midnight - now;
-
-        const hours = Math.floor(diff / 1000 / 60 / 60);
-        const minutes = Math.floor((diff / 1000 / 60) % 60);
-        const seconds = Math.floor((diff / 1000) % 60);
-
-        return { hours, minutes, seconds };
-    }
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -46,26 +47,28 @@ const HotDealSection = () => {
                 <div className="flex justify-center gap-6 font-bold text-2xl sm:text-3xl">
                     <div className="bg-white text-orange-600 w-20 h-20 sm:w-24 sm:h-24 rounded-full flex flex-col justify-center items-center shadow-lg">
                         {String(timeLeft.hours).padStart(2, "0")}
-                        <span className="block text-xs font-normal">Hours</span>
+                        <span className="block text-xs font-normal text-black">
+                            Hours
+                        </span>
                     </div>
 
-                    <div className="bg-white text-orange-600 w-20 h-20 sm:w-24 sm:h-24 rounded-full flex flex-col justify-center items-center shadow-lg text-white">
+                    <div className="bg-white text-orange-600 w-20 h-20 sm:w-24 sm:h-24 rounded-full flex flex-col justify-center items-center shadow-lg">
                         {String(timeLeft.minutes).padStart(2, "0")}
-                        <span className="block text-xs font-normal">
+                        <span className="block text-xs font-normal text-black">
                             Minutes
                         </span>
                     </div>
 
-                    <div className="bg-white text-orange-600 w-20 h-20 sm:w-24 sm:h-24 rounded-full flex flex-col justify-center items-center shadow-lg text-white">
+                    <div className="bg-white text-orange-600 w-20 h-20 sm:w-24 sm:h-24 rounded-full flex flex-col justify-center items-center shadow-lg">
                         {String(timeLeft.seconds).padStart(2, "0")}
-                        <span className="block text-xs font-normal">
+                        <span className="block text-xs font-normal text-black">
                             Seconds
                         </span>
                     </div>
                 </div>
 
                 {/* Deal Button */}
-                <button className="mt-6 bg-orange-600 hover:bg-orange-700 text-white font-semibold px-6 py-2 rounded-lg transition duration-300">
+                <button className="mt-6 bg-orange-400 hover:bg-orange-700 text-white font-semibold px-6 py-2 rounded-lg transition duration-300">
                     Shop Now
                 </button>
             </div>

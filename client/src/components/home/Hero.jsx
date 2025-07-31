@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 const Home = () => {
     const navigate = useNavigate();
+
     return (
         <section
             className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 px-4 md:px-8 lg:px-16 py-10"
@@ -55,15 +56,24 @@ const Home = () => {
                 </motion.button>
             </div>
 
-            {/* RIGHT CONTENT */}
-            <div className="flex items-center justify-center relative">
+            {/* RIGHT CONTENT with Up-Down Animation */}
+            <motion.div
+                animate={{ x: [0, 20, 0] }} // left → right → center
+                transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                }}
+                className="flex items-center justify-center pt-8 relative min-h-[300px]"
+                style={{ overflow: "visible" }}
+            >
                 <LazyLoadImage
                     src={HeroBg}
                     alt="Hero Background"
                     effect="opacity"
                     className="w-full max-w-[500px] h-auto object-contain"
                 />
-            </div>
+            </motion.div>
         </section>
     );
 };

@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <footer
             id="footer"
-            className="bg-[#F2F2F2] text-[] px-4 sm:px-10 md:px-16 lg:px-24 py-10 font-[Poppins] xl:px-28 2xl:px-40 mb-10 md:mb-0"
+            className="bg-orange-400 text-white px-4 sm:px-10 md:px-16 lg:px-24 py-10 font-[Poppins] xl:px-28 2xl:px-40 mb-10 md:mb-0"
         >
             <div className="grid grid-cols-1 gap-8 mx-auto max-w-screen-2xl sm:grid-cols-2 md:grid-cols-4">
                 {/* Logo and Description */}
